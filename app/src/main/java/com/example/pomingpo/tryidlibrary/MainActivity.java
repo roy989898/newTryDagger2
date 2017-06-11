@@ -6,14 +6,21 @@ import android.widget.TextView;
 
 import com.example.pomingpo.tryidlibrary.Component.DaggerMainComponent;
 import com.example.pomingpo.tryidlibrary.Component.MainComponent;
+import com.example.pomingpo.tryidlibrary.Module.BaseModule;
 import com.example.pomingpo.tryidlibrary.Module.MainModule;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tvShow;
     @Inject
-    Cloth cloth;
+    @Named("red")
+    Cloth redCloth;
+
+    @Inject
+    @Named("blue")
+    Cloth blueCloth;
 
     @Inject
     Shoes shoes;
@@ -26,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainComponent build = DaggerMainComponent.builder().mainModule(new MainModule()).build();
+        MainComponent build = DaggerMainComponent.builder().baseModule(new BaseModule(this)).mainModule(new MainModule()).build();
         build.inject(this);
 
         tvShow = (TextView) findViewById(R.id.tv_show);
 
-        tvShow.setText("我现在有" + cloth + "和" + shoes + " " + clothes);
+        tvShow.setText("我现在有" + redCloth + blueCloth + "和" + shoes + " " + clothes);
     }
 }
