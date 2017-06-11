@@ -1,6 +1,7 @@
 package com.example.pomingpo.tryidlibrary.Module;
 
 import com.example.pomingpo.tryidlibrary.Cloth;
+import com.example.pomingpo.tryidlibrary.Clothes;
 
 import dagger.Module;
 import dagger.Provides;
@@ -16,5 +17,10 @@ public class MainModule {
         Cloth cloth = new Cloth();
         cloth.setColor("红色");
         return cloth;
+    }
+
+    @Provides
+    public Clothes getClothes(Cloth cloth) {
+        return new Clothes(cloth);
     }
 }

@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     Shoes shoes;
 
+
+    @Inject
+    Clothes clothes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
         tvShow = (TextView) findViewById(R.id.tv_show);
 
-        tvShow.setText("我现在有" + cloth + "和" + shoes);
+        tvShow.setText("我现在有" + cloth + "和" + shoes + " " + clothes);
     }
 }
