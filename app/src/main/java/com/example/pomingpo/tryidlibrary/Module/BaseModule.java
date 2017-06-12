@@ -3,6 +3,7 @@ package com.example.pomingpo.tryidlibrary.Module;
 import android.content.Context;
 
 import com.example.pomingpo.tryidlibrary.APi.ApiManager;
+import com.example.pomingpo.tryidlibrary.Scope.PerActivity;
 
 import javax.inject.Singleton;
 
@@ -33,11 +34,7 @@ public class BaseModule {
         return new OkHttpClient();
     }
 
-    @Singleton
-    @Provides
-    public ApiManager getApiManger(OkHttpClient okHttpClient) {
-        return new ApiManager(okHttpClient);
-    }
+
 
 
 }
