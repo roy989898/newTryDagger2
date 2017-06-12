@@ -5,13 +5,13 @@ package com.example.pomingpo.tryidlibrary;
  */
 
 public class Clothes {
-    private Cloth cloth;
+    private Material cloth;
 
-    public Clothes(Cloth cloth) {
+    public Clothes(Material cloth) {
         this.cloth = cloth;
     }
 
-    public Cloth getCloth() {
+    public Material getCloth() {
         return cloth;
     }
 

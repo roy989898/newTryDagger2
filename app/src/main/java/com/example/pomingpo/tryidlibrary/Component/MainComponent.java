@@ -10,7 +10,7 @@ import dagger.Component;
  * Created by pomingpo on 2017/6/11.
  */
 
-@Component(modules = MainModule.class,dependencies = BaseModule.class)
+@Component(modules = {MainModule.class,BaseModule.class})
 public interface MainComponent {
     void inject(MainActivity mainActivity);
 }

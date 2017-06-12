@@ -4,7 +4,7 @@ package com.example.pomingpo.tryidlibrary;
  * Created by pomingpo on 2017/6/11.
  */
 
-public class Cloth {
+public class Cloth implements Material {
     private String color;
 
     public String getColor() {
