@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.example.pomingpo.tryidlibrary.APi.ApiManager;
 import com.example.pomingpo.tryidlibrary.Component.DaggerMainComponent;
 import com.example.pomingpo.tryidlibrary.Component.MainComponent;
 import com.example.pomingpo.tryidlibrary.Module.BaseModule;
@@ -23,11 +24,21 @@ public class MainActivity extends AppCompatActivity {
     Cloth blueCloth;
 
     @Inject
+    @Named("blue")
+    Cloth blueCloth2;
+
+    @Inject
     Shoes shoes;
 
 
     @Inject
     Clothes clothes;
+
+    @Inject
+    ApiManager mApiManager;
+
+    @Inject
+    ApiManager mApiManager2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +50,6 @@ public class MainActivity extends AppCompatActivity {
         tvShow = (TextView) findViewById(R.id.tv_show);
 
         tvShow.setText("我现在有" + redCloth + blueCloth + "和" + shoes + " " + clothes);
+        mApiManager.toString();
     }
 }
