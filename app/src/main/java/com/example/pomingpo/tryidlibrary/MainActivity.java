@@ -10,6 +10,8 @@ import com.example.pomingpo.tryidlibrary.Component.MainComponent;
 import com.example.pomingpo.tryidlibrary.Module.BaseModule;
 import com.example.pomingpo.tryidlibrary.Module.MainModule;
 
+import org.greenrobot.eventbus.EventBus;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -39,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     ApiManager mApiManager2;
+
+    @Inject
+    EventBus mEventBus;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,8 +2,7 @@ package com.example.pomingpo.tryidlibrary.Module;
 
 import android.content.Context;
 
-import com.example.pomingpo.tryidlibrary.APi.ApiManager;
-import com.example.pomingpo.tryidlibrary.Scope.PerActivity;
+import org.greenrobot.eventbus.EventBus;
 
 import javax.inject.Singleton;
 
@@ -34,7 +33,11 @@ public class BaseModule {
         return new OkHttpClient();
     }
 
-
+    @Singleton
+    @Provides
+    public EventBus getDefaultEventBus() {
+        return EventBus.getDefault();
+    }
 
 
 }
