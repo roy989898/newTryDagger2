@@ -4,58 +4,36 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.example.pomingpo.tryidlibrary.APi.ApiManager;
-import com.example.pomingpo.tryidlibrary.Component.DaggerMainComponent;
-import com.example.pomingpo.tryidlibrary.Component.MainComponent;
-import com.example.pomingpo.tryidlibrary.Module.BaseModule;
-import com.example.pomingpo.tryidlibrary.Module.MainModule;
-
-import org.greenrobot.eventbus.EventBus;
+import com.example.pomingpo.tryidlibrary.Components.DaggerPackComponent;
+import com.example.pomingpo.tryidlibrary.Components.DaggerUserComponent;
+import com.example.pomingpo.tryidlibrary.Module.PackModule;
+import com.example.pomingpo.tryidlibrary.Module.UserModule;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tvShow;
-    @Inject
-    @Named("red")
-    Cloth redCloth;
 
     @Inject
-    @Named("blue")
-    Cloth blueCloth;
+    User user;
 
     @Inject
-    @Named("blue")
-    Cloth blueCloth2;
+    Cloth cloth;
 
     @Inject
-    Shoes shoes;
-
-
-    @Inject
-    Clothes clothes;
-
-    @Inject
-    ApiManager mApiManager;
-
-    @Inject
-    ApiManager mApiManager2;
-
-    @Inject
-    EventBus mEventBus;
+    Food food;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainComponent build = DaggerMainComponent.builder().baseModule(new BaseModule(this)).mainModule(new MainModule()).build();
-        build.inject(this);
+      /*  MainComponent build = DaggerMainComponent.builder().baseModule(new BaseModule(this)).mainModule(new MainModule()).build();
+        build.inject(this);*/
+        DaggerUserComponent.builder().packComponent(DaggerPackComponent.builder().packModule(new PackModule()).build()).userModule(new UserModule()).build().inject(this);
 
         tvShow = (TextView) findViewById(R.id.tv_show);
 
-        tvShow.setText("我现在有" + redCloth + blueCloth + "和" + shoes + " " + clothes);
-        mApiManager.toString();
+
     }
 }

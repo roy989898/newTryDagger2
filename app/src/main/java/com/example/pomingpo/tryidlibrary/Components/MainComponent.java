@@ -1,4 +1,4 @@
-package com.example.pomingpo.tryidlibrary.Component;
+package com.example.pomingpo.tryidlibrary.Components;
 
 import com.example.pomingpo.tryidlibrary.MainActivity;
 import com.example.pomingpo.tryidlibrary.Module.BaseModule;
@@ -15,5 +15,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = {MainModule.class,BaseModule.class})
 public interface MainComponent {
-    void inject(MainActivity mainActivity);
+//    void inject(MainActivity mainActivity);
 }
