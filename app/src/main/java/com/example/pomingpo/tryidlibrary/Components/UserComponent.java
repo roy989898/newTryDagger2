@@ -5,14 +5,14 @@ import com.example.pomingpo.tryidlibrary.Module.UserModule;
 
 import javax.inject.Singleton;
 
-import dagger.Component;
+import dagger.Subcomponent;
 
 /**
  * Created by pomingpo on 2017/6/13.
  */
 
 @Singleton
-@Component(dependencies = PackComponent.class, modules = UserModule.class)
+@Subcomponent(modules = UserModule.class)
 public interface UserComponent {
     void inject(MainActivity activity);
 }
